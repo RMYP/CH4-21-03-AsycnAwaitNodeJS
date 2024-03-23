@@ -28,10 +28,8 @@ const getAllCustomer = async (req, res, next) => {
 
 const getCustomersById =  async (req, res, next) => {
     try {
-        const {id} = req.params.id;
+        const id = req.params.id;
         const customer = await customers.findById(id)
-        console.log(id)
-        console.log(customer)
         // menggunakan array method untuk membantu menemukan data
         console.log(customer);
         res.status(200).json({
@@ -50,7 +48,7 @@ const getCustomersById =  async (req, res, next) => {
 
 const updateCustomersById = async (req,res) => {
     try {
-    const {id} = req.params.id;
+    const id = req.params.id;
     const customer = await customers.findByIdAndUpdate(id, req.body, {
         new:true,
     });
@@ -99,7 +97,7 @@ const createCustomer = async (req, res) => {
     } catch (err) {
         res.status(400).json({
             status: "fail",
-            message : err.mssage
+            message : err.massage
         })
     }
     
